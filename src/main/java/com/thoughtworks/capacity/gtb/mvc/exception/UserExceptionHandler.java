@@ -16,4 +16,10 @@ public class UserExceptionHandler {
         return ResponseEntity.status(HttpStatus.BAD_REQUEST)
                 .body(ErrorResult.builder().code(HttpStatus.BAD_REQUEST.value()).message(message).build());
     }
+
+    @ExceptionHandler({UserExistException.class, UserLoginException.class})
+    public ResponseEntity<ErrorResult> handle(RuntimeException exception) {
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+                .body(ErrorResult.builder().code(HttpStatus.BAD_REQUEST.value()).message(exception.getMessage()).build());
+    }
 }

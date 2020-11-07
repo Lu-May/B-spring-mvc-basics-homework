@@ -25,6 +25,7 @@ public class UserController {
     }
 
     @GetMapping("/login")
+    @ResponseStatus(HttpStatus.OK)
     public User userLogin(@RequestParam("username") String username, @RequestParam("password") String password) {
         return userService.userLogin(username, password);
     }

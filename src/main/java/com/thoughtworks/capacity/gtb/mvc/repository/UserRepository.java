@@ -10,7 +10,7 @@ import java.util.Map;
 public class UserRepository {
     private final Map<String, User> users = new HashMap<>();
 
-    public int setId() {
+    public Integer setId() {
         return users.size() + 1;
     }
 
@@ -20,5 +20,9 @@ public class UserRepository {
 
     public User findByUsername(String username) {
         return users.get(username);
+    }
+
+    public boolean isExist(User user) {
+        return users.containsKey(user.getUsername());
     }
 }

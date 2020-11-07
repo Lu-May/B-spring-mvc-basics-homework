@@ -17,4 +17,8 @@ public class UserRepository {
     public void register(User user) {
         users.put(user.getUsername(), user);
     }
+
+    public User findByUsername(String username) {
+        return users.get(username);
+    }
 }

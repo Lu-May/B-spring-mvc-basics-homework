@@ -16,4 +16,9 @@ public class UserService {
         user.setId(userRepository.setId());
         userRepository.register(user);
     }
+
+    public User userLogin(String username, String password) {
+        User user = userRepository.findByUsername(username);
+        return user;
+    }
 }
